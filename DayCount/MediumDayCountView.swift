@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("Dublicating code for different size of widgets, you can create one universal, or do it to consists from differnt views")
 struct MediumDayCountView: View {
     var data: DayCountDetail
     
@@ -52,6 +53,7 @@ struct MediumDayCountView: View {
                 .padding(vstackPadding)
             }
             Spacer()
+            #warning("For this widget time format must be 15:00, not 15 00")
             Text(data.time)
                 .kerning(timeFontKerning)
                 .font(.custom(SFProFont, size: timeFontSize))

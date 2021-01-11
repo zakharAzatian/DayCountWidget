@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("Dublicating code for different size of widgets, you can create one universal, or do it to consists from differnt views")
 struct DayCountView: View {
     var data: DayCountDetail
     
@@ -34,6 +35,7 @@ struct DayCountView: View {
     var body: some View {
         ZStack(alignment: .trailing) {
             Image(backgroundImage)
+            #warning("Need to set content mode ascpect fill")
             HStack {
                 VStack(alignment: .leading, spacing: vstackSpasing) {
                     Text(data.date)
@@ -50,14 +52,16 @@ struct DayCountView: View {
                 Spacer()
             }
             Spacer()
+            #warning("not working opacity of color on widget, maybe trouble with xcode")
             Text(data.time)
                 .kerning(timeFontKerning)
                 .font(.custom(SFProFont, size: timeFontSize))
                 .multilineTextAlignment(.trailing)
                 .frame(width: timeWidth)
-                .foregroundColor(timeForegroundColor)
+                .foregroundColor(.white)
+                .opacity(0.6)
                 .lineLimit(nil)
-                .lineSpacing(/*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                .lineSpacing(0.0)
                 .padding(.trailing, timeTrailingPadding)
         }
     }
